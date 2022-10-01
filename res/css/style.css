@@ -3,11 +3,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   }
-   
-   li {
+}
+
+ul {
+    margin: 0;
+    padding: 0;
     list-style: none;
-   }
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
 
 /* NAVBAR STYLING*/
 .navbar {
@@ -43,4 +50,3 @@
    .services {
     position: relative; 
    }
-
