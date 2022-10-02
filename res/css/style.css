@@ -75,6 +75,10 @@ textarea {
     font-family: "sans-serif";
 }
 
+div{
+    flex-direction: row;
+}
+
 button {
     padding: 5px;
 }
