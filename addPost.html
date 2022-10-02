@@ -8,17 +8,21 @@
     <title>Add Post</title>
 </head>
 <body>
-    <nav class="navbar">
-      <!-- LOGO -->
-      <div class="logo">logo</div>
-      <!-- NAVIGATION MENU -->
-      <ul class="nav-links">
-        <!-- NAVIGATION MENUS -->
-        <div class="menu">
-          <li><a href="/">Home</a></li>
-          <li><a href="/">About</a></li>
-        </div>
-      </ul>
-    </nav>
+  <header>
+    <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+    </ul>
+    <a class="profile_logo" href=""><img src="res/images/profile_logo.png" width="60" height="60" alt="My Profile"></a>
+</header>
+<section class="addPost_content">
+  <form action="index.html" class="addPost_form">
+    <p><label for="textarea">Post body</label></p>
+    <textarea name="textarea" placeholder="textarea"></textarea>
+    
+    <label for="choose_file">Select file</label>
+    <input type="file" name="choose_file"><br><br>
+    <button type="submit">Create post</button>
+  </form>
+</section>
 </body>
 </html>
