@@ -67,6 +67,7 @@ textarea {
     resize: none;
   }
 
+/* Grey box in the middle*/
 .flex-container {
     display: flex;
     font-family: "sans-serif";
@@ -80,11 +81,11 @@ textarea {
     background-color: rgba(169, 169, 169, 0.61);
 }
 
-label{
+label {
     padding-right: 10px;
 }
 
-div{
+div {
     flex-direction: row;
     display: flex;
     padding-bottom: 15px;
@@ -96,9 +97,30 @@ button {
     color: #ffffff;
     border: none;
     margin-left: 38%;
-
 }
 
+/*Index page*/
+.body-section {
+    display: flex;
+    margin: 10px 10px;
+  }
+  
+.sidebar {
+    width: 15%;
+    height: 530px;
+
+}
+   
+.main-body {
+    width: 68%;
+    height: 530px;
+    margin: 0 10px 0 10px;
+}
+
+.footer {
+    width: 100%;
+    height: 80px;
+}
 
 
 
