@@ -85,7 +85,7 @@ label {
     padding-right: 10px;
 }
 
-div {
+.flex-container div {
     flex-direction: row;
     display: flex;
     padding-bottom: 15px;
@@ -107,10 +107,12 @@ button {
   
 .sidebar {
     width: 15%;
-    height: 530px;
-
+    height: 1100px;
+    background-color: #d3d3d3;
+    border-radius: 10px;
 }
-   
+
+
 .main-body {
     width: 68%;
     height: 530px;
@@ -122,5 +124,20 @@ button {
     height: 80px;
 }
 
+/* Trying to use it instead of .flex-container*/
+.post-box {
+    display: flex;
+    font-family: "sans-serif";
+    font-size: 1.1em;
+    flex-direction: column;
+    width: 90%;
+    height: 35%;
+    padding: 20px;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    border: 1px solid rgb(75, 95, 159);
+    border-radius: 10px;
+    background-color: rgba(169, 169, 169, 0.61);
+}
 
 
