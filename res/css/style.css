@@ -63,13 +63,10 @@ header {
     font-family: "sans-serif";
 }
 
-
 h2 {
     padding: 10px;
     color: rgb(75, 95, 159);
 }
-
-
 
 .main_text {
     font-size: 1.5em;
@@ -94,12 +91,10 @@ input[type=email], input[type=password] {
     padding: 5px;
     cursor: pointer;
 }
-
 /* login.html style*/
 
 
 /* addPost.html style */
-
 header ~ .flex-container {
     display: flex;
     flex-direction: column;
@@ -219,5 +214,4 @@ a + p {
 .footer {
     background-color: rgba(169, 169, 169, 0.61);
 }
-
 /* index.html style*/
