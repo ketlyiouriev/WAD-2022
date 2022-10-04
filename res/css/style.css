@@ -63,10 +63,13 @@ header {
     font-family: "sans-serif";
 }
 
+
 h2 {
     padding: 10px;
     color: rgb(75, 95, 159);
 }
+
+
 
 .main_text {
     font-size: 1.5em;
@@ -87,15 +90,17 @@ input[type=email], input[type=password] {
     padding: 10px;
 }
 
-.login_button {
+#login_button {
     padding: 5px;
     cursor: pointer;
 }
+
 /* login.html style*/
 
 
 /* addPost.html style */
-.flex-container {
+
+header ~ .flex-container {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -132,7 +137,7 @@ textarea {
     cursor: pointer;
 }
 
-.create_post_button {
+#create_post_button {
     padding: 7px;
     background-color: rgb(75, 95, 159);
     color: #ffffff;
@@ -152,7 +157,7 @@ textarea {
     .choose_file input[type=file] {
         margin-left: 45px;
     }
-    .create_post_button {
+    #create_post_button {
         margin-left: 0%;
     }
 
@@ -199,11 +204,11 @@ textarea {
     background-color: rgba(169, 169, 169, 0.61);
 }
 
-.post-header > p {
+a + p {
     float: right;
 }
 
-.post-body p {
+.post-body > p {
     margin: 2% 5% 1% 5%;
 }
 
@@ -214,4 +219,5 @@ textarea {
 .footer {
     background-color: rgba(169, 169, 169, 0.61);
 }
+
 /* index.html style*/
