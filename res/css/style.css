@@ -91,6 +91,18 @@ input[type=email], input[type=password] {
     padding: 5px;
     cursor: pointer;
 }
+
+@media (max-width: 480px) {
+    .main_text {
+        text-align: center;
+    }
+    .login_content a {
+        text-align: center;
+    }
+    .login_form {
+        width: 80%;
+    }
+}
 /* login.html style*/
 
 
@@ -118,7 +130,6 @@ textarea {
     width: 150%;
     height: 120%;
     padding: 15px 20px;
-    margin-left: 10px;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
@@ -126,7 +137,7 @@ textarea {
 }
 
 .choose_file input[type=file]::file-selector-button {
-    margin-left: 10px;
+    margin-left: 7px;
     color: rgb(255, 255, 255);
     background-color: rgb(75, 95, 159);
     cursor: pointer;
@@ -155,7 +166,6 @@ textarea {
     #create_post_button {
         margin-left: 0%;
     }
-
 }
 /* addPost.html style */
 
@@ -164,7 +174,7 @@ textarea {
 .body-section {
     display: flex;
     margin: 10px 10px;
-  }
+}
   
 .sidebar {
     width: 15%;
@@ -205,6 +215,7 @@ a + p {
 
 .post-body > p {
     margin: 2% 5% 1% 5%;
+    overflow: scroll;
 }
 
 .post-body img {
