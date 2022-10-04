@@ -25,7 +25,6 @@ header {
     top: 0;
 }
 
-
 .profile_logo {
     margin: 5;
     padding: 10px;
@@ -51,42 +50,63 @@ header {
     transition: 0.3s ease;
 }
 
-.addPost_content {
+
+/* login.html style */
+.login_content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 400px;
+    margin: 5% 28%;
     border: 1px solid rgb(75, 95, 159);
     border-radius: 10px;
     background-color: rgba(169, 169, 169, 0.61);
+    font-family: "sans-serif";
 }
 
-textarea {
-    width: 70%;
-    height: 100px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-  }
+h2 {
+    padding: 10px;
+    color: rgb(75, 95, 159);
+}
 
-/* Grey box in the middle*/
+.main_text {
+    font-size: 1.5em;
+    color: black;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+input[type=email], input[type=password] {
+    padding: 10px;
+}
+
+.login_button {
+    padding: 5px;
+    cursor: pointer;
+}
+/* login.html style*/
+
+
+/* addPost.html style */
 .flex-container {
     display: flex;
-    font-family: "sans-serif";
-    font-size: 1.1em;
     flex-direction: column;
-    width: 30%;
     padding: 20px;
-    margin: 5% 35%;
+    margin: 5% 20%;
+    align-items: center;
     border: 1px solid rgb(75, 95, 159);
     border-radius: 10px;
     background-color: rgba(169, 169, 169, 0.61);
+    font-family: "sans-serif";
+    font-size: 1.1em;
 }
-
-
 
 .flex-container div {
     flex-direction: row;
@@ -94,15 +114,46 @@ textarea {
     padding-bottom: 15px;
 }
 
-button {
-    padding: 7px;
-    background-color: #3a539f;
-    color: #ffffff;
-    border: none;
-    margin-left: 38%;
+textarea {
+    width: fit-content;
+    height: 100px;
+    padding: 12px 20px;
+    margin-left: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
 }
 
-/*Index page*/
+.choose_file input[type=file]::file-selector-button {
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(75, 95, 159);
+    cursor: pointer;
+  }
+
+.create_post_button {
+    padding: 7px;
+    background-color: rgb(75, 95, 159);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 655px) {
+    .flex-container div {
+        flex-direction: column;
+        align-items: center;
+    }
+    textarea {
+        width: fit-content;
+    }
+
+}
+/* addPost.html style */
+
+
+/* index.html style*/
 .body-section {
     display: flex;
     margin: 10px 10px;
@@ -159,6 +210,4 @@ button {
 .footer {
     background-color: rgba(169, 169, 169, 0.61);
 }
-
-
-
+/* index.html style*/
