@@ -1,0 +1,74 @@
+[
+    {
+        "datetime": "10.10.2022",
+        "user_name": "sunflower_123",
+        "post_title": "Afternoon library visit",
+        "post_content": "Went to the University of Tartu Library for the first time today!",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tartu_%C3%BClikooli_raamatukogu_2014.jpg/1200px-Tartu_%C3%BClikooli_raamatukogu_2014.jpg"
+    },
+
+    {
+        "datetime": "23.10.2022",
+        "user_name": "aster_010",
+        "post_title": "WAD lecture room information",
+        "post_content": "Anyone knows in which room is the lecture today?"
+    },
+
+    {
+        "datetime": "04.08.2022",
+        "user_name": "lotus_456",
+        "post_title": "Books are life",
+        "post_content": "Any book recommendations?",
+        "image": "https://i.pinimg.com/originals/6b/35/b9/6b35b922500246c1e0289cb9d0596360.jpg"
+    },
+
+    {
+        "datetime": "15.09.2022",
+        "user_name": "orchid_444",
+        "post_title": "Book recommendation",
+        "post_content": "I really enjoyed 'Beautiful World, Where Are You' by Sally Rooney! ;)"
+    },
+
+    {
+        "datetime": "23.10.2022",
+        "user_name": "lavender_987",
+        "post_title": "WAD lecture room clarification",
+        "post_content": "Today it's in room 1008! ;)"
+    },
+
+    {
+        "datetime": "22.10.2022",
+        "user_name": "tulip_777",
+        "post_title": "Pets are the cutest",
+        "post_content": "Hey guys, do you have any pets? I have a rabbit.",
+        "image": "https://www.collinsdictionary.com/images/full/rabbit_274039655.jpg"
+    },
+
+    {
+        "datetime": "31.10.2022",
+        "user_name": "rose_222",
+        "post_title": "Pets are the cutest - I agree",
+        "post_content": "Love your rabbit! I have 3 dogs :)"
+    },
+
+    {
+        "datetime": "02.11.2022",
+        "user_name": "daisy_000",
+        "post_title": "Curious me",
+        "post_content": "Tell me something I already don't know!"
+    },
+
+    {
+        "datetime": "01.09.2022",
+        "user_name": "iris_876",
+        "post_title": "Funniest joke I've ever heard",
+        "post_content": "Funny joke - I would like to make the world a better place, but they wont't give me the source code!"
+    },
+
+    {
+        "datetime": "01.11.2022",
+        "user_name": "Check this out",
+        "post_title": "Went to skydiving yesterday!",
+        "post_content": "https://media.istockphoto.com/photos/amazing-skydiving-at-the-sunset-picture-id955020826?k=20&m=955020826&s=170667a&w=0&h=UHkzQ_P9Qc9pDCei1ruNzez6LXcP6RTqYpBFjI0YVCo="
+    }
+]
