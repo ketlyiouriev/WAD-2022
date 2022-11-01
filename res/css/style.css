@@ -178,7 +178,7 @@ textarea {
   
 .sidebar {
     width: 15%;
-    height: 1700px;
+    height: 300vh;
     background-color: #d3d3d3;
     border-radius: 10px;
 }
