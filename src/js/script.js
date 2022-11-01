@@ -8,18 +8,21 @@ window.onload = function() {
             appendData(data);
 
             function appendData(data) {
-                var mainContainer = document.getElementsByClassName("main-body");
+                var mainContainer = document.getElementById("main-body");
                 for (var i = 0; i < data.length; i++) {
                     var post_box = document.createElement("div");
+                    post_box.className = "post-box";
                     create_header_content(i, post_box);
                     create_body_content(i, post_box);
                     create_footer_content(i, post_box);
+                    console.log(post_box)
                     mainContainer.appendChild(post_box);
                 }
             }
     
             function create_header_content(i, post_box) {
                 var div_header = document.createElement("div");
+                div_header.className = "post-header";
                 var img = document.createElement("img");
                 img.src = posts[i].user_icon;
                 div_header.appendChild(img);
@@ -32,8 +35,9 @@ window.onload = function() {
     
             function create_body_content(i, post_box) {
                 var div_content = document.createElement("div");
+                div_content.className = "post-content";
                 var p = document.createElement("p");
-                var text_node = document.createTextNode(posts[i].datetime);
+                var text_node = document.createTextNode(posts[i].post_content);
                 p.appendChild(text_node);
                 div_content.appendChild(p);
                 var img = document.createElement("img");
@@ -45,18 +49,19 @@ window.onload = function() {
     
             function create_footer_content(i, post_box) {
                 var div_footer = document.createElement("div");
+                div_footer.className = "post-footer";
                 var img = document.createElement("img");
                 img.src = posts[i].like_button;
                 div_footer.appendChild(img);
                 post_box.appendChild(div_footer);
             }
 
-        })
-
         
-
-
+        })
 }
+
+
+
 
 /*
 window.onload = function() {

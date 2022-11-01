@@ -13,11 +13,20 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="addPost.html">addPost</a></li>
           </ul>
-          <a class="profile_logo" href="login.html"><img src="res/images/profile_logo.png" width="60" height="60" alt="My Profile"></a>
+          <div class="dropdown">
+            <button onclick="showDDM()" id="buttonDDM" class="dropbtn">
+                <img src="res/images/profile_logo.png"  width="60" height="60" alt="My Profile">
+            </button>
+            <div id="dropdownContent" class="dropdown-content">
+              <a>John Doe</a>
+              <a>john.doe@ut.ee</a>
+              <a href="login.html">logout</a>
+            </div>
+          </div>
     </header>
     <div class="body-section">
         <div class="sidebar"></div>
-        <div class="main-body">
+        <div id="main-body" class="main-body">
           
         </div>
         <div class="sidebar"></div>
@@ -26,5 +35,6 @@
         <div class="footer"></div>
     </footer>
     <script type="module" src="/src/js/script.js"></script>
+    <script type="text/javascript" src="/src/js/functions.js"></script>
 </body>
 </html>
