@@ -30,24 +30,25 @@ window.onload = function() {
                 post_box.appendChild(div_header);
             }
     
-            function create_body_content(i, mainContainer) {
+            function create_body_content(i, post_box) {
                 var div_content = document.createElement("div");
                 var p = document.createElement("p");
-                p.appendChild(posts[i].post_content);
+                var text_node = document.createTextNode(posts[i].datetime);
+                p.appendChild(text_node);
                 div_content.appendChild(p);
                 var img = document.createElement("img");
-                img.appendChild(posts[i].image);
+                img.src = posts[i].image;
                 div_content.appendChild(img);
-                mainContainer.appendChild(div_content);
+                post_box.appendChild(div_content);
                 
             }
     
-            function create_footer_content(i, mainContainer) {
+            function create_footer_content(i, post_box) {
                 var div_footer = document.createElement("div");
                 var img = document.createElement("img");
-                img.appendChild(posts[i].like_button);
+                img.src = posts[i].like_button;
                 div_footer.appendChild(img);
-                mainContainer.appendChild(div_footer);
+                post_box.appendChild(div_footer);
             }
 
         })
