@@ -62,8 +62,6 @@ window.onload = function() {
                 div_footer.appendChild(img);
                 post_box.appendChild(div_footer);
             }
-
-        
         })
 }
 
