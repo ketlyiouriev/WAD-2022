@@ -15,6 +15,7 @@ window.onload = function() {
                     create_header_content(i, post_box);
                     create_body_content(i, post_box);
                     create_footer_content(i, post_box);
+                    console.log(post_box)
                     mainContainer.appendChild(post_box);
                 }
                 console.log(mainContainer);
@@ -62,6 +63,7 @@ window.onload = function() {
                 post_box.appendChild(div_footer);
             }
 
+        
         })
 }
 
