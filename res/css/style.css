@@ -178,7 +178,7 @@ textarea {
   
 .sidebar {
     width: 15%;
-    min-height: 786vh;
+    height: 4965px;
     background-color: #d3d3d3;
     border-radius: 10px;
 }
@@ -209,17 +209,23 @@ textarea {
     background-color: rgba(169, 169, 169, 0.61);
 }
 
-a + p {
+.profile_logo {
+    float: left;
+}
+
+img + p {
     float: right;
 }
 
 .post-body > p {
-    margin: 2% 5% 1% 5%;
-    overflow: scroll;
+    margin: 5% 5% 5% 5%;
+    overflow: -moz-hidden-unscrollable;
 }
 
 .post-body img {
-    margin: 2% 5% 1% 5%;
+    margin: 5% 5% 5% 5%;
+    width: 80%;
+    height: 350px;
 }
 
 .footer {

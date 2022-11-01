@@ -17,17 +17,19 @@ window.onload = function() {
                     create_footer_content(i, post_box);
                     mainContainer.appendChild(post_box);
                 }
+                console.log(mainContainer);
             }
     
             function create_header_content(i, post_box) {
                 var div_header = document.createElement("div");
                 div_header.className = "post-header";
                 var img = document.createElement("img");
+                img.className = "profile_logo";
                 img.src = posts[i].user_icon;
                 img.width = 60; img.height = 60; img.alt = "My profile"
                 div_header.appendChild(img);
                 var p = document.createElement("p");
-                var text_node = document.createTextNode(posts[i].post_content);
+                var text_node = document.createTextNode(posts[i].datetime);
                 p.appendChild(text_node);
                 div_header.appendChild(p);
                 post_box.appendChild(div_header);
@@ -37,13 +39,13 @@ window.onload = function() {
                 var div_content = document.createElement("div");
                 div_content.className = "post-body";
                 var p = document.createElement("p");
-                var text_node = document.createTextNode(posts[i].datetime);
+                var text_node = document.createTextNode(posts[i].post_content);
                 p.appendChild(text_node);
                 div_content.appendChild(p);
                 if (posts[i].image != null) {
                     var img = document.createElement("img");
                     img.src = posts[i].image;
-                    img.width = 320; img.height = 300; img.alt = "Post content picture"
+                    img.alt = "Post content picture"
                     div_content.appendChild(img);
                 }
                 post_box.appendChild(div_content);
