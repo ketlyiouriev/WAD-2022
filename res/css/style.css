@@ -178,7 +178,7 @@ textarea {
   
 .sidebar {
     width: 15%;
-    height: 400vh;
+    min-height: 786vh;
     background-color: #d3d3d3;
     border-radius: 10px;
 }
@@ -272,7 +272,7 @@ a + p {
   
   .show {
     display: block;
-    
+
 }
 
 #dropdown {
