@@ -1,10 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">Main</router-link> |
-    <router-link to="/about">Login</router-link>
-  </nav>
-  <router-view/>
+	<!--<Header/>-->
+	<!--<router-view/>-->
+	<Footer/>
 </template>
+
+  
+  <script>
+  //import Header from "@/components/Header";
+  import Footer from "@/components/Footer";
+  
+  export default {
+	components: {Footer}
+  }
+  </script>
+
 
 <style>
 #app {
