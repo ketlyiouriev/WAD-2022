@@ -9,7 +9,8 @@
         <img v-if="post.image != null" :src="post.image" alt="post-image">
     </div>
     <div class="post-footer">
-        <img :src="post.like_button" width="50" height="50" alt="My Profile">
+        <img @click="increaseLike" :src="post.like_button" width="50" height="50" alt="My Profile">
+        <p>{{ post.likes_count }} likes</p>
     </div>
     </div>
 </template>
@@ -19,6 +20,11 @@
 export default {
     name: "Post",
     props: ["post"],
+    methods: {
+        increaseLike: function() {
+            this.$store.commit('incrementPostLike', this.post.id)
+        }
+    }
 };
 </script>
 
