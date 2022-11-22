@@ -1,7 +1,7 @@
 <template>
     <div class="login_content">
         <h2>Please log in</h2>
-        <form action="index.html" class="login_form">
+        <form action="../views/HomeView.vue" class="login_form">
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
