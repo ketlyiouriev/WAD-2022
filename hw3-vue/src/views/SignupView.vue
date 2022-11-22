@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+	<div>
+	<SignUp></SignUp>
+	</div>
+  </template>
+
+<script>
+import SignUp from '@/components/SignUp.vue';
+
+export default {
+  name: 'SignupView',
+  components: {
+	SignUp
+  }
+}
+</script>
