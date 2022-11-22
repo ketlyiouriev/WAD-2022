@@ -9,7 +9,6 @@
   </script>
   
   <style scoped>
-
   .sidebar {
     flex: 1;
     background-color: #d3d3d3;
