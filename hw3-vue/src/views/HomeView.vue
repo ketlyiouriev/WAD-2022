@@ -1,7 +1,9 @@
 <template>
-  <Sidebar/>
-  <Posts/>
-  <Sidebar/>
+  <div class="content-container">
+    <Sidebar/>
+    <Posts/>
+    <Sidebar/>
+  </div>
   <div>
     <button v-on:click="ResetLikesAct">Reset likes</button>
   </div>
@@ -36,5 +38,8 @@ button {
   text-decoration: none;
   font-size: 15px;
   cursor: pointer;
+}
+.content-container {
+  display: flex;
 }
 </style>
