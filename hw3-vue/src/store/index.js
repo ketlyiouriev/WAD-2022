@@ -97,7 +97,7 @@ export default createStore({
           "user_name": "iris_876",
           "user_icon": require("@/assets/profile_logo.png"),
           "post_title": "Funniest joke I've ever heard",
-          "post_content": "Funny joke - I would like to make the world a better place, but they wont't give me the source code!",
+          "post_content": "Funny joke - I would like to make the world a better place, but they won't give me the source code!",
           "image": null,
           "like_button": require("@/assets/like_button.png")
       },

@@ -1,6 +1,7 @@
 <template>
   <Sidebar/>
   <Posts/>
+  <Sidebar/>
   <div>
     <button v-on:click="ResetLikesAct">Reset likes</button>
   </div>
@@ -30,7 +31,7 @@ button {
   border-radius: 5px;
   color: white;
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 15px;

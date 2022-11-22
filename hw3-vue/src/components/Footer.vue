@@ -1,7 +1,7 @@
 <template>
 	<footer>
 	  <p>©Copyright 2022</p>
-      <p>All rights reserved. Powered by the WAD Team K</p>
+      <p>All rights reserved | Powered by the WAD Team K</p>
 	</footer>
   </template>
   

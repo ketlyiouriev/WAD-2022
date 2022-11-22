@@ -1,5 +1,5 @@
 <template>
-    <div class="scroll-content">
+    <div class="content">
         <Post v-for="post in $store.state.posts" :post="post" :key="post.id" />
     </div>
 </template>
@@ -14,10 +14,9 @@ export default {
 </script>
 
 <style scoped>
-
-.scroll-content {
-    
-    overflow: scroll;
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 </style>
