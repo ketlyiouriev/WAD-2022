@@ -1,5 +1,6 @@
 <template>
   <Sidebar/>
+  <Posts/>
   <div>
     <button v-on:click="ResetLikesAct">Reset likes</button>
   </div>
@@ -7,11 +8,12 @@
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
+import Posts from "@/components/Posts";
 
 export default {
   name: 'HomeView',
   components: {
-    Sidebar
+    Sidebar, Posts
   },
   methods: {
     ResetLikesAct: function() {

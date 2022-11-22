@@ -56,4 +56,5 @@ img + p {
     width: 80%;
     height: 350px;
 }
+
 </style>
