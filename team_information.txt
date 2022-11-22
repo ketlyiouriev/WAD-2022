@@ -2,6 +2,7 @@ TEAM - K (group 4)
 
 Members:
 * Vanda Pakina, C17114;
-* Ketly Iouriev, C013301.
+* Ketly Iouriev, C013301;
+* Heigo Tornik, ...
 
 Link to our repository --> https://github.com/ketlyiouriev/WAD-2022.

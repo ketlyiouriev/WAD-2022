@@ -44,6 +44,7 @@ export default {
 }
 .post-header img, .post-footer img {
     float: left;
+    cursor: pointer;
 }
 img + p {
     float: right;
