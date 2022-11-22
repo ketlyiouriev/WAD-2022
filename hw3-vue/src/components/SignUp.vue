@@ -38,7 +38,7 @@
             this.submitted = true;
             this.isValid = checkPassword(this.password);
             if (this.isValid) {
-                window.location.href = "/";
+                this.$router.push("/")
             }
         },
     },
