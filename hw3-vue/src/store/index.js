@@ -11,7 +11,8 @@ export default createStore({
         "post_title": "Afternoon library visit",
         "post_content": "Went to the University of Tartu Library for the first time today!",
         "image": require("@/assets/ut_library.jpg"),
-        "like_button": require("@/assets/like_button.png")
+        "like_button": require("@/assets/like_button.png"),
+        "likes_count": 0,
       },
 
       {
@@ -22,7 +23,8 @@ export default createStore({
           "post_title": "WAD lecture room information",
           "post_content": "Anyone knows in which room is the lecture today?",
           "image": null,
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -33,7 +35,8 @@ export default createStore({
           "post_title": "Books are life",
           "post_content": "Any book recommendations?",
           "image": require("@/assets/library.jpg"),
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -44,7 +47,8 @@ export default createStore({
           "post_title": "Book recommendation",
           "post_content": "I really enjoyed 'Beautiful World, Where Are You' by Sally Rooney! ;)",
           "image": null,
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -55,7 +59,8 @@ export default createStore({
           "post_title": "WAD lecture room clarification",
           "post_content": "Today it's in room 1008! ;)",
           "image": require("@/assets/delta_rooms.jpg"),
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -66,7 +71,8 @@ export default createStore({
           "post_title": "Pets are the cutest",
           "post_content": "Hey guys, do you have any pets? I have a rabbit.",
           "image": require("@/assets/rabbit.jpg"),
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -77,7 +83,8 @@ export default createStore({
           "post_title": "Pets are the cutest - I agree",
           "post_content": "Love your rabbit! I have 3 dogs :)",
           "image": null,
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -88,7 +95,8 @@ export default createStore({
           "post_title": "Curious me",
           "post_content": "Tell me something I already don't know!",
           "image": null,
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -99,7 +107,8 @@ export default createStore({
           "post_title": "Funniest joke I've ever heard",
           "post_content": "Funny joke - I would like to make the world a better place, but they won't give me the source code!",
           "image": null,
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       },
 
       {
@@ -110,25 +119,23 @@ export default createStore({
           "post_title": "Went to skydiving yesterday!",
           "post_content": "Check this out!",
           "image": require("@/assets/skydiving.jpg"),
-          "like_button": require("@/assets/like_button.png")
+          "like_button": require("@/assets/like_button.png"),
+          "likes_count": 0,
       }
     ]
   },
   getters: {
   },
   mutations: {
+    incrementPostLike (state, post_id) {
+        state.posts[post_id].likes_count += 1
+    },
+    resetPostsLikes (state) {
+        state.posts.forEach(post => post.likes_count = 0)
+    }
+
   },
   actions: {
-    IncreaseLikesAct: act => {
-      setTimeout(function() {
-          act.commit("IncreaseLikes")
-      }, 1000)
-    },
-    ResetLikesAct: act => {
-      setTimeout(function() {
-        act.commit("ResetLikes")
-    }, 1000)
-    }
   },
   modules: {
   }

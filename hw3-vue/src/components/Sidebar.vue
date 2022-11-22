@@ -11,7 +11,7 @@ export default {
 <style scoped>
 .sidebar {
   /*flex: 1;*/
-  width: 15%;
+  width: 35%;
   background-color: rgba(169, 169, 169, 0.61);
   border-radius: 10px;
 }
