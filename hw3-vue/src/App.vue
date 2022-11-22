@@ -1,14 +1,8 @@
 <template>
-    <Header/>
+	<Header/>
+	<!--<router-view/>-->
+	<Footer/>
 </template>
-  
-<script>
-import Header from "@/components/Header";
-
-export default {
-components: { Header }
-}
-</script>
 
 <style>
 #app {
