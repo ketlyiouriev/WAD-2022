@@ -17,6 +17,7 @@ footer {
     height: 15vh;
     background-color: rgba(169, 169, 169, 0.61);
     align-items: center;
+    justify-content: center;
     display: block;
     padding: 1% 0% 1% 0%;
 }

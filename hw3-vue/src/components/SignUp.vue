@@ -3,11 +3,21 @@
         <h2>Please log in</h2>
         <form action="index.html" class="login_form">
             <label for="email"></label>
-            <input v-model="email" type="email" placeholder="Email" required><br>
+            <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
-            <input v-model="password" type="password" placeholder="Password" required><br>
+            <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
             <button id="login_button" class="button" type="submit">Login</button>
         </form>
+        <div class="invalidPassword" :class="{ visible: !isValid && submitted }">
+            <ol>
+                <h3>Invalid password</h3>
+                <li>Password length must be between 8 and 15 characters.</li>
+                <li>Password must include at least one uppercase and two lowercase letters.</li>
+                <li>Password must include at least one numeric value.</li>
+                <li>Password must start with an uppercase letter.</li>
+                <li>Password must include the character '_'.</li>
+            </ol>
+        </div>
     </div>
 </template>
 
@@ -19,10 +29,19 @@
         return {
             email: "",
             password: "",
-            formSubmitted: false,
+            submitted: false,
             isValid: false,
         };
-    }
+    },
+    methods: {
+        submit() {
+            this.submitted = true;
+            this.isValid = checkPassword(this.password);
+            if (this.isValid) {
+                window.location.href = "/";
+            }
+        },
+    },
   }
   function checkPassword(password) {
     return (
@@ -80,4 +99,12 @@ input[type=email], input[type=password] {
       width: 80%;
   }
 }
+
+.invalidPassword{
+  text-align: left;
+  background-color: rgb(190, 123, 123);
+  width: 65%;
+  /*display: none;*/
+}
+
 </style>
