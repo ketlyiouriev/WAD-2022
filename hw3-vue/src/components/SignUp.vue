@@ -1,14 +1,14 @@
 <template>
     <div class="login_content">
         <h2>Please log in</h2>
-        <form action="../views/HomeView.vue" class="login_form">
+        <form class="login_form" v-on:submit="submit">
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
             <button id="login_button" class="button" type="submit">Login</button>
         </form>
-        <div class="invalidPassword" :class="{ visible: !isValid && submitted }">
+        <div class="invalidPassword" v-if="!isValid && submitted">
             <ol>
                 <h3>Invalid password</h3>
                 <li>Password length must be between 8 and 15 characters.</li>
@@ -46,9 +46,9 @@
   function checkPassword(password) {
     return (
         /^[A-Z]{1}.{7,13}$/.test(password) &&   /* starts with uppercase letter & 8 <= password.length < 15 */
-        /_/.test(password) &&   /* includes '_' symbol */
-        /[0-9]/.test(password) &&   /* includes numeric value */
-        /[a-z].*[a-z]/.test(password)  /* contains 2 or more lowercase letters */ 
+        /_/.test(password) &&                   /* includes '_' symbol */
+        /[0-9]/.test(password) &&               /* includes numeric value */
+        /[a-z].*[a-z]/.test(password)           /* contains 2 or more lowercase letters */
     );}
 
 </script>
