@@ -21,10 +21,9 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     background-color: rgb(75, 95, 159);
     position: sticky;
-    /*top: 0;*/
 }
 
 .links {
