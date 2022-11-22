@@ -19,7 +19,7 @@ export default {
   methods: {
     ResetLikesAct: function() {
       this.$store.dispatch("ResetLikesAct")
-  }
+    }
   }
 }
 </script>
