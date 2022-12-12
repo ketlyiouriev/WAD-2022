@@ -1,12 +1,12 @@
 <template>
-    <div class="login_content">
-        <h2>Please log in</h2>
+    <div class="signup_content">
+        <h2>Please Sign Up</h2>
         <form class="login_form" v-on:submit="submit">
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
-            <button id="login_button" class="button" type="submit">Login</button>
+            <button id="login_button" class="button" type="submit">Sign Up</button>
         </form>
         <div class="invalidPassword" v-if="!isValid && submitted">
             <ol>
@@ -55,7 +55,7 @@
 
 
 <style scoped>
-.login_content {
+.signup_content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +92,7 @@ input[type=email], input[type=password] {
 }
 
 @media (max-width: 480px) {
-  .login_content a {
+  .signup_content a {
       text-align: center;
   }
   .login_form {
