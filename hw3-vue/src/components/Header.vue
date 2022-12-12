@@ -4,6 +4,8 @@
             <router-link to="/">Home</router-link>
             <p>|</p>
             <router-link to="/signup">Sign Up</router-link>
+            <p>|</p>
+            <router-link to="/login">Login</router-link>
         </div>
         <img src="@/assets/profile_logo.png" width="80" height="80" alt="My Profile">
     </header>
