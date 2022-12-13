@@ -15,6 +15,7 @@ npm run serve
 npm run build
 ```
 
+### Executes the start script
 ```
 npm start
 ```
