@@ -1,4 +1,4 @@
-# hw3-vue
+# hw4-vue
 
 ## Project setup
 ```
@@ -13,6 +13,10 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+```
+npm start
 ```
 
 ### Customize configuration
