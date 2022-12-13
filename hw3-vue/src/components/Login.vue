@@ -28,13 +28,6 @@
         };
     },
     methods: {
-        submit() {
-            this.submitted = true;
-            this.isValid = checkPassword(this.password); // siin probleem
-            if (this.isValid) {
-                this.$router.push("/")
-            }
-        },
 
         LogIn() {
             var data = {

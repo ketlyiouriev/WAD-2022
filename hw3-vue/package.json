@@ -7,7 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
