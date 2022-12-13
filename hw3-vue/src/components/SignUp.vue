@@ -3,10 +3,10 @@
         <h2>Please Sign Up</h2>
         <form class="login_form" v-on:submit="submit">
             <label for="email"></label>
-            <input v-model.trim="email" type="email" placeholder="Email" required><br>
+            <input v-model.trim="email" type="email" name="email" placeholder="Email" required><br>
             <label for="password"></label>
-            <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
-            <button @click="SignUp" id="login_button" class="button" type="submit">Sign Up</button>
+            <input v-model="password" type="password" name="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
+            <button @click="signup" id="login_button" class="button" type="submit">Sign Up</button>
         </form>
         <div class="invalidPassword" v-if="!isValid && submitted">
             <ol>
@@ -25,7 +25,7 @@
   export default {
     name: "SignUp",
 
-    data() {
+    data: function() {
         return {
             email: "",
             password: "",
@@ -34,39 +34,38 @@
         };
     },
     methods: {
-        submit() {
-            this.submitted = true;
-            this.isValid = checkPassword(this.password);
-            if (this.isValid) {
-                this.$router.push("/")
-            }
-        },
-
-        SignUp() {
+      submit() {
+          this.submitted = true;
+          this.isValid = checkPassword(this.password);
+          if (this.isValid) {
+              this.$router.push("/login")
+          }
+      },
+      signup() {
           var data = {
             email: this.email,
             password: this.password
-      };
-      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
-      fetch("http://localhost:3000/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-          credentials: 'include', //  Don't forget to specify this if you need cookies
-          body: JSON.stringify(data),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-      console.log(data);
-      this.$router.push("/");
-      //location.assign("/");
-      })
-      .catch((e) => {
-        console.log(e);
-        console.log("error");
-      });
-    },
+          };
+          // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+          fetch("http://localhost:3000/auth/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+              credentials: 'include', //  Don't forget to specify this if you need cookies
+              body: JSON.stringify(data),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+          console.log(data);
+          //this.$router.push("/");
+          //location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
+      },
     },
   }
   function checkPassword(password) {
