@@ -13,8 +13,8 @@ app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 // We need to include "credentials: true" to allow cookies to be represented  
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
-app.use(express.json());  // Parses incoming requests with JSON payloads and is based on body-parser.
-app.use(cookieParser());  // Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+app.use(express.json()); // Parses incoming requests with JSON payloads and is based on body-parser.
+app.use(cookieParser()); // Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
 
 const secret = "gdgdhdbcb770785rgdzqws"; // use a stronger secret
 const maxAge = 60 * 60; //unlike cookies, the expiresIn in jwt token is calculated by seconds not milliseconds
@@ -27,6 +27,7 @@ const generateJWT = (id) => {
 app.listen(port, () => {
     console.log("Server is listening to port " + port)
 });
+
 
 // is used to check whether a user is authinticated
 app.get('/auth/authenticate', async(req, res) => {
