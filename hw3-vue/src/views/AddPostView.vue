@@ -2,9 +2,11 @@
     <div class="addpost_content">
         <h2>Add Post</h2>
         <form class="addpost_form" v-on:submit="submit">
-            <label for="body"></label>
-            <p>Post Body</p>
-            <input v-model.trim="body" type="body" placeholder="Body" required><br>
+            <div class="form_body">
+                <label for="body"></label>
+                <p>Post Body</p>
+                <input v-model.trim="body" type="body" placeholder="Body" required><br>
+            </div>
             <button @click="addPost" id="addpost_button" class="button" type="submit">Add</button>
         </form>
     </div>
@@ -23,6 +25,9 @@
             this.submitted = true;
             // redirectib home page'ile, kus all posts
         },
+        addPost() {
+            this.$router.push("/")
+        }
     }
 }
 </script>
@@ -45,17 +50,25 @@ h2 {
 }
 p {
     font-size: 1.2em;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .addpost_form {
     display: flex;
     flex-direction: column;
     margin: 20px;
 }
+.form_body {
+    display: flex;
+    flex-direction: row;
+}
 input[type=body] {
-    padding: 10px;
+    padding: 20px;
 }
 #addpost_button {
     padding: 5px;
+    margin-top: 20px;
     cursor: pointer;
 }
 @media (max-width: 480px) {

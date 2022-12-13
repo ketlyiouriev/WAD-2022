@@ -106,7 +106,7 @@ app.post('/auth/login', async(req, res) => {
 
         //Checking if the password is correct
         const validPassword = await bcrypt.compare(password, user.rows[0].password);
-        //console.log("validPassword:" + validPassword);
+        console.log("validPassword:" + validPassword);
         if (!validPassword) return res.status(401).json({ error: "Incorrect password" });
 
         const token = await generateJWT(user.rows[0].id);
