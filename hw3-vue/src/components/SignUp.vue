@@ -6,7 +6,7 @@
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
-            <button id="login_button" class="button" type="submit">Sign Up</button>
+            <button @click="SignUp" id="login_button" class="button" type="submit">Sign Up</button>
         </form>
         <div class="invalidPassword" v-if="!isValid && submitted">
             <ol>
@@ -41,6 +41,32 @@
                 this.$router.push("/")
             }
         },
+
+        SignUp() {
+          var data = {
+            email: this.email,
+            password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+      console.log(data);
+      this.$router.push("/");
+      //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
+    },
     },
   }
   function checkPassword(password) {
@@ -104,7 +130,6 @@ input[type=email], input[type=password] {
   text-align: left;
   background-color: rgb(190, 123, 123);
   width: 65%;
-  /*display: none;*/
 }
 
 </style>

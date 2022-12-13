@@ -5,23 +5,13 @@
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
-            <input v-model="password" type="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
+            <input v-model="password" type="password" placeholder="Password" required><br>
             <div class="buttons">
-                <router-link to="/signup"><button id="signup_button" class="button" type="submit">Sign Up</button></router-link>
+                <button @click='this.$router.push("/signup")' id="signup_button" class="button" type="submit">Sign Up</button>
                 <p>or</p>
-                <button id="login_button" class="button" type="submit">Login</button>
+                <button @click="LogIn" id="login_button" class="button" type="submit">Login</button>
             </div>
         </form>
-        <div class="invalidPassword" v-if="!isValid && submitted">
-            <ol>
-                <h3>Invalid password</h3>
-                <li>Password length must be between 8 and 15 characters.</li>
-                <li>Password must include at least one uppercase and two lowercase letters.</li>
-                <li>Password must include at least one numeric value.</li>
-                <li>Password must start with an uppercase letter.</li>
-                <li>Password must include the character '_'.</li>
-            </ol>
-        </div>
     </div>
 </template>
 
@@ -40,20 +30,39 @@
     methods: {
         submit() {
             this.submitted = true;
-            this.isValid = checkPassword(this.password);
+            this.isValid = checkPassword(this.password); // siin probleem
             if (this.isValid) {
                 this.$router.push("/")
             }
         },
+
+        LogIn() {
+            var data = {
+                email: this.email,
+                password: this.password
+            };
+            // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+            fetch("http://localhost:3000/auth/login", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                credentials: 'include', //  Don't forget to specify this if you need cookies
+                body: JSON.stringify(data),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+            console.log(data);
+            //this.$router.push("/");
+            location.assign("/");
+            })
+            .catch((e) => {
+                console.log(e);
+                console.log("error");
+            });
+            },
     },
   }
-  function checkPassword(password) {
-    return (
-        /^[A-Z]{1}.{7,13}$/.test(password) &&   /* starts with uppercase letter & 8 <= password.length < 15 */
-        /_/.test(password) &&                   /* includes '_' symbol */
-        /[0-9]/.test(password) &&               /* includes numeric value */
-        /[a-z].*[a-z]/.test(password)           /* contains 2 or more lowercase letters */
-    );}
 
 </script>
 
@@ -79,7 +88,6 @@ h2 {
 p {
   font-size: 1.2em;
 }
-
 .login_form {
   display: flex;
   flex-direction: column;
@@ -89,7 +97,6 @@ p {
 input[type=email], input[type=password] {
   padding: 10px;
 }
-
 .button {
   padding: 10px;
   cursor: pointer;
@@ -103,12 +110,6 @@ input[type=email], input[type=password] {
 .login_form {
       width: 80%;
   }
-}
-.invalidPassword{
-  text-align: left;
-  background-color: rgb(190, 123, 123);
-  width: 65%;
-  /*display: none;*/
 }
 
 .buttons {
