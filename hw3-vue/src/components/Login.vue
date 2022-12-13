@@ -1,15 +1,15 @@
 <template>
     <div class="login_content">
-        <h2>Please Login</h2>
+        <h2>Please Log In</h2>
         <form class="login_form" v-on:submit="submit">
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" placeholder="Password" required><br>
             <div class="buttons">
+                <button @click="logIn" id="login_button" class="button" type="submit">Log In</button>
+                <p>If you don't have an account yet, click "Sign Up"!</p>
                 <button @click='this.$router.push("/signup")' id="signup_button" class="button" type="submit">Sign Up</button>
-                <p>or</p>
-                <button @click="LogIn" id="login_button" class="button" type="submit">Login</button>
             </div>
         </form>
     </div>
@@ -28,8 +28,14 @@
         };
     },
     methods: {
-
-        LogIn() {
+        submit() {
+            this.submitted = true;
+            this.isValid = checkPassword(this.password); // siin probleem
+            if (this.isValid) {
+                this.$router.push("/")
+            }
+        },
+        logIn() {
             var data = {
                 email: this.email,
                 password: this.password
@@ -59,7 +65,6 @@
 
 </script>
 
-
 <style scoped>
 .login_content {
   display: flex;
@@ -71,13 +76,11 @@
   background-color: rgba(169, 169, 169, 0.61);
   font-family: "sans-serif";
 }
-
 h2 {
   padding: 10px;
   padding-bottom: 0px;
   color: rgb(75, 95, 159);
 }
-
 p {
   font-size: 1.2em;
 }
@@ -86,16 +89,14 @@ p {
   flex-direction: column;
   margin: 20px;
 }
-
 input[type=email], input[type=password] {
   padding: 10px;
 }
 .button {
-  padding: 10px;
+  padding: 5px;
+  width: 100%;
   cursor: pointer;
-  margin: 10px;
 }
-
 @media (max-width: 480px) {
 .login_content a {
       text-align: center;
@@ -104,9 +105,9 @@ input[type=email], input[type=password] {
       width: 80%;
   }
 }
-
 .buttons {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 </style>

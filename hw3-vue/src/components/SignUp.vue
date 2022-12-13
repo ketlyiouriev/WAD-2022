@@ -91,32 +91,26 @@
   background-color: rgba(169, 169, 169, 0.61);
   font-family: "sans-serif";
 }
-
 h2 {
   padding: 10px;
   padding-bottom: 0px;
   color: rgb(75, 95, 159);
 }
-
 p {
   font-size: 1.2em;
 }
-
 .login_form {
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
-
 input[type=email], input[type=password] {
   padding: 10px;
 }
-
 #login_button {
   padding: 5px;
   cursor: pointer;
 }
-
 @media (max-width: 480px) {
   .signup_content a {
       text-align: center;
@@ -125,11 +119,9 @@ input[type=email], input[type=password] {
       width: 80%;
   }
 }
-
 .invalidPassword{
   text-align: left;
   background-color: rgb(190, 123, 123);
   width: 65%;
 }
-
 </style>
