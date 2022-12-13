@@ -1,7 +1,7 @@
 <template>
     <div class="post-box"> 
     <div class="post-header">
-        <img :src="post.user_icon" width="60" height="60" alt="My Profile">
+        <img :src="profileImage" width="60" height="60" alt="My Profile">
         <p>{{ post.datetime }}</p>
     </div>
     <div class="post-body">
@@ -9,7 +9,7 @@
         <img v-if="post.image != null" :src="post.image" alt="post-image">
     </div>
     <div class="post-footer">
-        <img @click="increaseLike" :src="post.like_button" width="50" height="50" alt="My Profile">
+        <img @click="increaseLike" :src="likeUrl" width="50" height="50" alt="My Profile">
         <p>{{ post.likes_count }} likes</p>
     </div>
     </div>
@@ -24,7 +24,15 @@ export default {
         increaseLike: function() {
             this.$store.commit('incrementPostLike', this.post.id)
         }
-    }
+    },
+    computed: {
+        likeUrl() {
+            return require('../assets/like_button.png')
+        },
+        profileImage() {
+            return require('../assets/profile_logo.png')
+        }
+    },
 };
 </script>
 

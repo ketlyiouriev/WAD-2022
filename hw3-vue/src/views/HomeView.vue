@@ -22,7 +22,7 @@ export default {
     ResetLikesAct: function() {
       this.$store.commit('resetPostsLikes')
     }
-  }
+  },
 }
 </script>
 

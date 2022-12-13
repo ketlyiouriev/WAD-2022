@@ -1,12 +1,12 @@
 <template>
     <div class="signup_content">
         <h2>Please Sign Up</h2>
-        <form class="login_form" v-on:submit="submit">
+        <form class="login_form" >
             <label for="email"></label>
             <input v-model.trim="email" type="email" name="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" name="password" placeholder="Password" :class="{ error: !isValid && submitted}" required><br>
-            <button @click="signup" id="login_button" class="button" type="submit">Sign Up</button>
+            <button id="login_button" class="button" @click.stop.prevent="submit()" type="submit">Sign Up</button>
         </form>
         <div class="invalidPassword" v-if="!isValid && submitted">
             <ol>
@@ -38,7 +38,7 @@
             this.submitted = true;
             this.isValid = checkPassword(this.password);
             if (this.isValid) {
-                this.$router.push("/login")
+                this.signup();
             }
         },
 
@@ -46,7 +46,7 @@
           var data = {
             email: this.email,
             password: this.password
-      };
+        };
       // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
       fetch("http://localhost:3000/auth/signup", {
         method: "POST",
@@ -59,8 +59,7 @@
       .then((response) => response.json())
       .then((data) => {
       console.log(data);
-      //this.$router.push("/");
-      //location.assign("/");
+        this.$router.push("/");
       })
       .catch((e) => {
         console.log(e);

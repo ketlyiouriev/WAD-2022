@@ -1,13 +1,13 @@
 <template>
     <div class="login_content">
         <h2>Please Log In</h2>
-        <form class="login_form" v-on:submit="submit">
+        <form class="login_form">
             <label for="email"></label>
             <input v-model.trim="email" type="email" placeholder="Email" required><br>
             <label for="password"></label>
             <input v-model="password" type="password" placeholder="Password" required><br>
             <div class="buttons">
-                <button @click="logIn" id="login_button" class="button" type="submit">Log In</button>
+                <button @click.stop.prevent="LogIn()" id="login_button" class="button" type="submit">Log In</button>
                 <p>If you don't have an account yet, click "Sign Up"!</p>
                 <button @click='this.$router.push("/signup")' id="signup_button" class="button" type="submit">Sign Up</button>
             </div>
@@ -45,9 +45,9 @@
             })
             .then((response) => response.json())
             .then((data) => {
-            console.log(data);
-            //this.$router.push("/");
-            location.assign("/");
+                console.log(data);
+                this.$router.push("/");
+
             })
             .catch((e) => {
                 console.log(e);
