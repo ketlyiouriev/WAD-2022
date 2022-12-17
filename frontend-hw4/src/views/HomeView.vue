@@ -9,7 +9,7 @@
   </div>
   <div class="buttons">
     <button @click='this.$router.push("/addpost")'>Add Post</button>
-    <button @click="DeleteAll">Delete All</button>
+    <button @click="deleteAll">Delete All</button>
   </div>
 </template>
 
@@ -43,6 +43,19 @@ export default {
         console.log("error logout");
       });
     },
+    deleteAll() {
+        fetch("http://localhost:3000/posts/", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => {
+          console.log(response.data);
+          this.$router.go("/");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   }
 }
 </script>

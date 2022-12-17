@@ -190,6 +190,18 @@ app.post('/posts', async(req, res) => {
     }
 });
 
+app.delete('/posts', async(req, res) => {
+    try {
+        console.log("delete all posts request has arrived");
+        const deletepost = await pool.query(
+            "DELETE FROM posts"
+        );
+        res.json(deletepost);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
 
 ///////////////////////////////////////////////////////////
 
