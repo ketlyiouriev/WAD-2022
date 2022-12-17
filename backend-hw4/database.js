@@ -2,8 +2,8 @@ const Pool = require('pg').Pool;
 
 const pool = new Pool({
     user: "postgres",
-    password: "6020424", //add your password
-    database: "testWad",
+    password: "wad3008",
+    database: "wad-2022",
     host: "localhost",
     port: "5432"
 });
@@ -19,21 +19,32 @@ const execute = async(query) => {
     }
 };
 
-/* 
-gen_random_uuid() A system function to generate a random Universally Unique IDentifier (UUID)
-An example of generated uuid:  32165102-4866-4d2d-b90c-7a2fddbb6bc8
-*/
+// gen_random_uuid() - a system function to generate a random Universally Unique IDentifier (UUID)
 
-const createTblQuery = `
+const createTblQuery_users = `
     CREATE TABLE IF NOT EXISTS "users" (
         id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
         email VARCHAR(200) NOT NULL UNIQUE,
         password VARCHAR(200) NOT NULL 
     );`;
 
-execute(createTblQuery).then(result => {
+execute(createTblQuery_users).then(result => {
     if (result) {
-        console.log('Table "users" is created');
+        console.log('Table "users" is created!');
+    }
+});
+
+const createTblQuery_posts = `
+    CREATE TABLE IF NOT EXISTS "posts" (
+        id SERIAL RIMARY KEY,
+        datetime VARCHAR(8) NOT NULL,
+        post_title VARCHAR(200),
+        post_content VARCHAR(500) NOT NULL,
+    );`;
+
+execute(createTblQuery_posts).then(result => {
+    if (result) {
+        console.log('Table "posts" is created!');
     }
 });
 
