@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkhw3_vue"]=self["webpackChunkhw3_vue"]||[]).push([[265],{3265:function(n,u,e){e.r(u),e.d(u,{default:function(){return i}});var t=e(3396);const r={class:"about"},a=(0,t._)("h1",null,"Contacts page",-1),c=[a];function s(n,u){return(0,t.wg)(),(0,t.iD)("div",r,c)}var o=e(89);const f={},h=(0,o.Z)(f,[["render",s]]);var i=h}}]);
-//# sourceMappingURL=265.fddb67cf.js.map
