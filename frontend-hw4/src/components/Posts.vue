@@ -9,6 +9,7 @@ import Post from "@/components/Post";
 
 export default {
     name: "Posts",
+    components: { Post },
     data: function() {
         return {
             posts:[],
@@ -21,7 +22,7 @@ export default {
         .catch(err => console.log(err.message));
         console.log("Mounted!")
     }
-    /*components: { Post },
+    /*
     computed: {
         posts() {
             return this.$store.state.posts;
@@ -39,4 +40,5 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+
 </style>
