@@ -4,8 +4,9 @@
     <Posts/>
     <Sidebar/>
   </div>
-  <div>
-    <button v-on:click="ResetLikesAct">Reset likes</button>
+  <div class="buttons">
+    <button @click='this.$router.push("/addpost")'>Add Post</button>
+    <button @click="DeleteAll">Delete All</button>
   </div>
 </template>
 
@@ -19,9 +20,9 @@ export default {
     Sidebar, Posts
   },
   methods: {
-    ResetLikesAct: function() {
+    /*AddPostAct: function() {
       this.$store.commit('resetPostsLikes')
-    }
+    }*/
   },
 }
 </script>
@@ -34,6 +35,8 @@ button {
   color: white;
   padding: 10px;
   margin-bottom: 10px;
+  margin-left: 240px;
+  margin-right: 240px;
   text-align: center;
   text-decoration: none;
   font-size: 15px;

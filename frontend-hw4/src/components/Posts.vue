@@ -9,19 +9,19 @@ import Post from "@/components/Post";
 
 export default {
     name: "Posts",
-    data: function() {
+    /*data: function() {
         return {
-            posts:[],
+            posts: [],
         }
-    },
-    mounted() {
+    },*/
+    components: { Post },
+    /*mounted() {
         fetch('http://localhost:300/posts/')
         .then((response) => response.json())
         .then(data => this.posts = data)
         .catch(err => console.log(err.message));
         console.log("Mounted!")
-    }
-    /*components: { Post },
+    }*/
     computed: {
         posts() {
             return this.$store.state.posts;
@@ -29,7 +29,7 @@ export default {
     },
     beforeCreate() {
         this.$store.dispatch('getPosts')
-    }*/
+    }
 };
 </script>
 

@@ -105,10 +105,10 @@ app.get('/auth/logout', (req, res) => {
 });
 
 
-/*app.get('/posts', (req, res) => {
+app.get('/posts', (req, res) => {
     verifyAuth(req, res);
     res.status(200).json({posts: serverPosts});
-})*/
+})
 
 
 const verifyAuth = async (req, res) => {
@@ -164,7 +164,7 @@ const verifyAuth = async (req, res) => {
 }
 
 // put existing posts to database
-app.post('/posts', async(req, res) => {
+/*app.post('/posts', async(req, res) => {
     try {
         console.log("Existing posts are added to database!")
         for(i = 0; i <= serverPosts.length; i++) {
@@ -192,7 +192,7 @@ app.get('/posts', async(req, res) => {
         res.status(400)
            .send(err.message);
     }
-})
+})*/
 
 const serverPosts = [
     {

@@ -36,10 +36,10 @@ execute(createTblQuery_users).then(result => {
 
 const createTblQuery_posts = `
     CREATE TABLE IF NOT EXISTS "posts" (
-        id SERIAL RIMARY KEY,
+        id SERIAL PRIMARY KEY,
         datetime VARCHAR(8) NOT NULL,
         post_title VARCHAR(200),
-        post_content VARCHAR(500) NOT NULL,
+        post_content VARCHAR(500) NOT NULL
     );`;
 
 execute(createTblQuery_posts).then(result => {
