@@ -10,6 +10,8 @@ import Post from "@/components/Post";
 export default {
     name: "Posts",
     /*data: function() {
+    components: { Post },
+    data: function() {
         return {
             posts: [],
         }
@@ -39,4 +41,5 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+
 </style>
