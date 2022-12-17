@@ -163,6 +163,38 @@ const verifyAuth = async (req, res) => {
     }
 }
 
+/////////////////////////////////////////////
+
+app.get('/posts', async(req, res) => {
+    try {
+        console.log("get posts request has arrived");
+        const posts = await pool.query(
+            "SELECT * FROM posts"
+        );
+        res.json(posts.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+app.post('/posts', async(req, res) => {
+    try {
+        console.log("a post request has arrived");
+        const post = req.body;
+        const newpost = await pool.query(
+            "INSERT INTO posts (datetime, post_title, post_content) values ($1, $2, $3) RETURNING*", [post.datetime, post.post_title, post.post_content]
+        );
+        res.json(newpost);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+
+///////////////////////////////////////////////////////////
+
+
+
 // put existing posts to database
 /*app.post('/posts', async(req, res) => {
     try {
@@ -179,10 +211,10 @@ const verifyAuth = async (req, res) => {
         res.status(400)
            .send(err.message);
     }
-});
+});*/
 
 // get existing posts from database
-app.get('/posts', async(req, res) => {
+/*app.get('/posts', async(req, res) => {
     try {
         console.log("Get posts request has arrived!")
         const posts = await pool.query("SELECT * FROM posts");

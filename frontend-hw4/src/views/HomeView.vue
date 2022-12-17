@@ -25,7 +25,7 @@ export default {
   methods: {
     /*AddPostAct: function() {
       this.$store.commit('resetPostsLikes')
-    },
+    },*/
     logOut() {
       fetch("http://localhost:3000/auth/logout", {
           credentials: 'include', //  Don't forget to specify this if you need cookies
@@ -43,14 +43,13 @@ export default {
         console.log("error logout");
       });
     },
-    }*/
-  },
+  }
 }
 </script>
 
 <style scoped>
 button {
-  background-color: rgb(75, 95, 159);
+  background-color: rgb(255, 151, 66);
   border: none;
   border-radius: 5px;
   color: white;
@@ -65,7 +64,7 @@ button {
 }
 
 .logOut-button{
-  background-color: rgb(255, 151, 66);
+  margin-top: 1%;
 }
 .content-container {
   display: flex;
