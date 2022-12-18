@@ -35,7 +35,8 @@ export default {
         console.log(data);
         console.log('jwt removed');
         //console.log('jwt removed:' + auth.authenticated());
-        this.$router.push("/login");
+        this.$router.replace("/login");
+        this.$router.go();
         //location.assign("/");
       })
       .catch((e) => {
