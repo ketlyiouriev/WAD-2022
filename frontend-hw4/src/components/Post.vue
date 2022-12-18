@@ -3,6 +3,7 @@
     <div class="post-header">
         <img :src="profileImage" width="60" height="60" alt="My Profile">
         <p>{{ datetime }}</p>
+        <p>{{ post.post_title }}</p>
     </div>
     <div class="post-body">
         <p>{{ content }}</p>
