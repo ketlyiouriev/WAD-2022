@@ -4,11 +4,11 @@
     </div>
   <div class="content-container">
     <Sidebar/>
-    <Posts/>
+    <Posts :key="posts.length" :posts="posts" v-if="loaded"/>
     <Sidebar/>
   </div>
   <div class="buttons">
-    <button @click='this.$router.push("/addpost")'>Add Post</button>
+    <button @click='addPost'>Add Post</button>
     <button @click="deleteAll">Delete All</button>
   </div>
 </template>
@@ -22,6 +22,23 @@ export default {
   components: {
     Sidebar, Posts
   },
+  data() {
+    return {
+        posts: [],
+        loaded: false,
+    }
+  },
+
+  async mounted() {
+    fetch('http://localhost:3000/posts')
+    .then((response) => response.json())
+    .then(data => this.posts = data)
+    .catch(err => console.log(err.message));
+    console.log("mounted")
+    this.loaded = true;
+    this.$forceUpdate();
+  },
+
   methods: {
     /*AddPostAct: function() {
       this.$store.commit('resetPostsLikes')
@@ -56,6 +73,9 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    addPost() {
+        this.$router.replace("/addpost")
     }
   }
 }

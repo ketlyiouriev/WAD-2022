@@ -1,16 +1,15 @@
 <template>
-    <div class="post-box"> 
+    <div class="post-box">
     <div class="post-header">
         <img :src="profileImage" width="60" height="60" alt="My Profile">
-        <p>{{ post.datetime }}</p>
+        <p>{{ datetime }}</p>
     </div>
     <div class="post-body">
-        <p>{{ post.post_content }}</p>
-        <img v-if="post.image != null" :src="post.image" alt="post-image">
+        <p>{{ content }}</p>
     </div>
     <div class="post-footer">
         <img @click="increaseLike" :src="likeUrl" width="50" height="50" alt="My Profile">
-        <p>{{ post.likes_count }} likes</p>
+        <p>{{ likes }} likes</p>
     </div>
     </div>
 </template>
@@ -31,6 +30,16 @@ export default {
         },
         profileImage() {
             return require('../assets/profile_logo.png')
+        },
+        datetime() {
+            return this.post ? this.post.datetime : ""
+        },
+        likes() {
+            return this.post ? this.post.likes_count : ""
+        },
+        content() {
+            return this.post ? this.post.post_content : ""
+
         }
     },
 };
