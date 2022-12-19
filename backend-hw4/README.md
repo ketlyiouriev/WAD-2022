@@ -1,17 +1,5 @@
-# WAD2022-Lab13-Backend
-
 ## Pre-requisites
 Node.js \& NPM
-
-## Clone the repository
-```
-git clone https://github.com/M-Gharib/WAD2022-Lab13-Backend.git
-```
-
-## Navigate to the project directory
-```
-cd <project name>
-```
 
 ## Install dependencies
 ```
@@ -22,7 +10,6 @@ npm install
 ```
 npm start
 ```
-
 or 
 ```
 npm server.js

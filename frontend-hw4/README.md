@@ -1,5 +1,3 @@
-# wad2022-lab13-fr
-
 ## Project setup
 ```
 npm install
