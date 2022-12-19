@@ -5,7 +5,7 @@
             <div class="form_body">
                 <label for="body"></label>
                 <p>Post Body</p>
-                <input v-model.trim="body" type="body" placeholder="Body" required><br>
+                <input v-model.trim="body" type="body" placeholder="Body"><br>
             </div>
             <div class="buttons">
                 <button @click="updatePost" id="updatepost_button" class="button" type="submit">Update</button>
@@ -21,12 +21,37 @@
         data() {
             return {
                 body: "",
+                postId: this.$route.query.postId,
             };
     },
     methods: {
-        submit() {
-            this.submitted = true;
-            // redirectib home page'ile, kus all posts
+        updatePost() {
+            fetch(`http://localhost:3000/posts/${this.postId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: 'include',
+                body: JSON.stringify({"body": this.body})
+            })
+            .then((res) => {
+                this.$router.push("/")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        },
+        deletePost() {
+            fetch(`http://localhost:3000/posts/${this.postId}`, {
+                method: "DELETE",
+                credentials: 'include',
+            })
+            .then((res) => {
+                this.$router.push("/")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         },
     }
 }

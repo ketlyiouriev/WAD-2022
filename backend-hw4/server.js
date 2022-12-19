@@ -70,7 +70,7 @@ app.post('/auth/login', async(req, res) => {
         const { email, password } = req.body;
         const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
         if (user.rows.length === 0) return res.status(401).json({ error: "User is not registered!" });
-        /* To authenticate users, you will need to compare the password they provide with the one in the database. 
+        /* To authenticate users, you will need to compare the password they provide with the one in the database.
         bcrypt.compare() accepts the plain text password and the hash that you stored, along with a callback function. 
         That callback supplies an object containing any errors that occurred, and the overall result from the comparison. 
         If the password matches the hash, the result is true.
@@ -99,10 +99,6 @@ app.get('/auth/logout', (req, res) => {
     res.status(202).clearCookie('jwt').json({ "Msg": "Cookie cleared!" }).send
 });
 
-app.get('/posts', (req, res) => {
-    verifyAuth(req, res);
-    res.status(200).json({posts: serverPosts});
-})
 
 const verifyAuth = async (req, res) => {
     console.log('Authentication request has been arrived!');
@@ -115,16 +111,16 @@ const verifyAuth = async (req, res) => {
         if (!token) {
             console.log('Author is not authenticated!');
             res.send({ "authenticated": authenticated }); // authenticated = false
-            return;
+            return false;
         }
         // checks if the token exists
         // jwt.verify(token, secretOrPublicKey, [options, callback]) verify a token
-        await jwt.verify(token, secret, async (err) => { // token exists, now we try to verify it
+        return await jwt.verify(token, secret, async (err) => { // token exists, now we try to verify it
             if (err) { // not verified, redirect to login page
                 console.log(err.message);
                 console.log('token is not verified');
                 res.send({ "authenticated": authenticated }); // authenticated = false
-                return;
+                return false;
             }
             // token exists and it is verified
             const jwtAsJson = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
@@ -137,15 +133,17 @@ const verifyAuth = async (req, res) => {
             if (!userExists.rows[0].exists) {
                 console.log('User does not exist!');
                 res.send({ "authenticated": authenticated }); // authenticated = false
-                return;
+                return false;
             }
             console.log('Author is authenticated!');
             authenticated = true;
             res.send({ "authenticated": authenticated }); // authenticated = true
+            return true;
         })
     } catch (err) {
         console.error(err.message);
         res.status(400).send(err.message);
+        return false;
     }
 }
 
@@ -173,6 +171,9 @@ app.post('/posts', async(req, res) => {
 });
 
 app.get('/posts/:id', async(req, res) => {
+    if (!verifyAuth(req, res)) {
+        return;
+    }
     try {
         console.log("'Get a post' request has arrived!");
         const { id } = req.params;
@@ -184,11 +185,14 @@ app.get('/posts/:id', async(req, res) => {
 });
 
 app.put('/posts/:id', async(req, res) => {
+    if (!verifyAuth(req, res)) {
+        return;
+    }
     try {
-        const { id } = req.params;
-        const post = req.body;
         console.log("'Update post' request has arrived!");
-        const updatepost = await pool.query("UPDATE posts SET body = $2 WHERE id = $1 RETURNING*", [id, post.body]);
+        const { id } = req.params;
+        const { body } = req.body;
+        const updatepost = await pool.query("UPDATE posts SET post_content = $2 WHERE id = $1 RETURNING*", [id, body]);
         res.json(updatepost);
     } catch (err) {
         console.error(err.message);
@@ -196,6 +200,9 @@ app.put('/posts/:id', async(req, res) => {
 });
 
 app.delete('/posts/:id', async(req, res) => {
+    if (!verifyAuth(req, res)) {
+        return;
+    }
     try {
         const { id } = req.params;
         console.log("'Delete a post' request has arrived!");
@@ -207,6 +214,9 @@ app.delete('/posts/:id', async(req, res) => {
 });
 
 app.delete('/posts', async(req, res) => {
+    if (!verifyAuth(req, res)) {
+        return;
+    }
     try {
         console.log("'Delete all posts' request has arrived!");
         const deletepost = await pool.query("DELETE FROM posts");

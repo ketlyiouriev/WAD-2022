@@ -9,7 +9,7 @@
         <p>{{ content }}</p>
     </div>
     <div class="post-footer">
-        <img @click="increaseLike" :src="likeUrl" width="50" height="50" alt="My Profile">
+        <img @click="edit" :src="editUrl" width="50" height="50" alt="My Profile">
         <p>{{ likes }} likes</p>
     </div>
     </div>
@@ -21,13 +21,13 @@ export default {
     name: "Post",
     props: ["post"],
     methods: {
-        increaseLike: function() {
-            this.$store.commit('incrementPostLike', this.post.id)
+        edit: function() {
+            this.$router.push({name: 'apost', query: {postId: this.post.id}})
         }
     },
     computed: {
-        likeUrl() {
-            return require('../assets/like_button.png')
+        editUrl() {
+            return require('../assets/edit.png')
         },
         profileImage() {
             return require('../assets/profile_logo.png')
