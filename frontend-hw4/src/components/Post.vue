@@ -10,7 +10,6 @@
     </div>
     <div class="post-footer">
         <img @click="edit" :src="editUrl" width="50" height="50" alt="My Profile">
-        <p>{{ likes }} likes</p>
     </div>
     </div>
 </template>
